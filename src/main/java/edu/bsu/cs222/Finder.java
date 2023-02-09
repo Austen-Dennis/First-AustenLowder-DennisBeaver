@@ -8,13 +8,12 @@ import java.net.URLConnection;
 public class Finder {
 
     public Finder() throws IOException {
-        String articleSearch = " ";
-        URlBuilder(articleSearch);
+        URlBuilder();
 
 
     }
-    public URL URlBuilder(String articleSearch) throws IOException {
-        URL url = new URL("https://en.wikipedia.org/w/api.php?action=query&format=json&prop=revisions&titles=" +articleSearch +"=timestamp|user&rvlimit=27&redirects");
+    public URL URlBuilder() throws IOException {
+        URL url = new URL("https://en.wikipedia.org/w/api.php?action=query&format=json&prop=revisions&titles=Zappa&rvprop=timestamp|user&rvlimit=27&redirects");
         conncector(url);
         return url;
     }
