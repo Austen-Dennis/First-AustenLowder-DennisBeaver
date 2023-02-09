@@ -10,11 +10,18 @@ public class FinderTest {
 
 
     @Test
-    public void testJamesGunn() throws IOException {
-        String articleSearch = "JamesGunn";
+    public void testJames() throws IOException {
+        String articleSearch = "James";
         Finder jamesGunn = new Finder();
         String result = String.valueOf(Finder.URLBuilder(articleSearch));
-        Assertions.assertEquals(result,"https://en.wikipedia.org/w/api.php?action=query&format=json&prop=revisions&titles=JamesGunn=timestamp|user&rvlimit=27&redirects");
+        Assertions.assertEquals(result,"https://en.wikipedia.org/w/api.php?action=query&format=json&prop=revisions&titles=James=timestamp|user&rvlimit=27&redirects");
+    }
+    @Test
+    public void testJamesGunn() throws IOException {
+        String articleSearch = "James Gunn";
+        Finder jamesGunn = new Finder();
+        String result = String.valueOf(Finder.URLBuilder(articleSearch));
+        Assertions.assertEquals(result,"https://en.wikipedia.org/w/api.php?action=query&format=json&prop=revisions&titles=James%20Gunn=timestamp|user&rvlimit=27&redirects");
     }
 
 }

@@ -7,15 +7,15 @@ import java.net.URLConnection;
 public class Finder {
 
     public Finder() throws IOException {
-        String articleSearch = null;
+        String articleSearch = " ";
         URLBuilder(articleSearch);
-
 
     }
 
 
     public static URL URLBuilder(String articleSearch) throws IOException {
-        URL url = new URL("https://en.wikipedia.org/w/api.php?action=query&format=json&prop=revisions&titles=" + articleSearch +"=timestamp|user&rvlimit=27&redirects");
+        String articleName = articleSearch.replace(" ", "%20");
+        URL url = new URL("https://en.wikipedia.org/w/api.php?action=query&format=json&prop=revisions&titles=" + articleName +"=timestamp|user&rvlimit=27&redirects");
         conncector(url);
         return url;
     }
