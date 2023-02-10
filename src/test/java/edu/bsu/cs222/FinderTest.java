@@ -14,14 +14,14 @@ public class FinderTest {
         String articleSearch = "James";
         Finder jamesGunn = new Finder();
         String result = String.valueOf(Finder.URLBuilder(articleSearch));
-        Assertions.assertEquals(result,"https://en.wikipedia.org/w/api.php?action=query&format=json&prop=revisions&titles=James=timestamp|user&rvlimit=27&redirects");
+        Assertions.assertEquals(result,"https://en.wikipedia.org/w/api.php?action=query&format=json&prop=revisions&titles=James&rvprop=timestamp|user&rvlimit=27&redirects");
     }
     @Test
     public void testJamesGunn() throws IOException {
         String articleSearch = "James Gunn";
         Finder jamesGunn = new Finder();
         String result = String.valueOf(Finder.URLBuilder(articleSearch));
-        Assertions.assertEquals(result,"https://en.wikipedia.org/w/api.php?action=query&format=json&prop=revisions&titles=James%20Gunn=timestamp|user&rvlimit=27&redirects");
+        Assertions.assertEquals(result,"https://en.wikipedia.org/w/api.php?action=query&format=json&prop=revisions&titles=James%20Gunn&rvprop=timestamp|user&rvlimit=27&redirects");
     }
     @Test
     public void testJSON() throws IOException {
@@ -31,18 +31,4 @@ public class FinderTest {
         Assertions.assertEquals("2023-01-28T10:41:39Z", timestamp);
     }
 
-    @Test
-    public void testBlank() throws IOException {
-        String articleSearch = "";
-        ErrorsTest blank = new ErrorsTest();
-        Boolean resultBool = Boolean.valueOf(Errors.errorBlank(articleSearch));
-        Assertions.assertFalse(resultBool);
-    }
-    @Test
-    public void testNotBlank() throws IOException {
-        String articleSearch = "D";
-        ErrorsTest blank = new ErrorsTest();
-        Boolean resultBool = Boolean.valueOf(Errors.errorBlank(articleSearch));
-        Assertions.assertTrue(resultBool);
-    }
 }
