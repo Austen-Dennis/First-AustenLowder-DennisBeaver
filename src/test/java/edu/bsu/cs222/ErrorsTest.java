@@ -21,10 +21,11 @@ public class ErrorsTest {
         Assertions.assertTrue(resultBool);
     }
     @Test
-    public void testPageNotFound() throws IOException {
+    public void testPageNotFound() throws IOException{
         String articleSearch = "QuackleSackleBackle";
         ErrorsTest notFound = new ErrorsTest();
-        Boolean resultBool = Boolean.valueOf(Errors.pageNotFound(articleSearch));
+        Boolean resultBool = null;
+        resultBool = Boolean.valueOf(Errors.pageNotFound(articleSearch));
         Assertions.assertTrue(resultBool);
     }
 }
