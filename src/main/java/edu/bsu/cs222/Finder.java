@@ -8,11 +8,9 @@ import java.net.URL;
 import java.net.URLConnection;
 
 public class Finder {
-
     public Finder() throws IOException {
         String articleSearch = " ";
         URLBuilder(articleSearch);
-
     }
 
 
@@ -27,7 +25,6 @@ public class Finder {
         connection.setRequestProperty("User-Agent", "Revision Reporter/0.1 (austen.lowder@bsu.edu)");
         InputStream inputStream = connection.getInputStream();
     }
-
 
     public String parse(InputStream testDataStream) throws IOException {
         JSONArray result = (JSONArray) JsonPath.read(testDataStream, "$..timestamp");
