@@ -11,16 +11,14 @@ public class Errors {
         } else return true;
     }
 
-    public static Boolean pageNotFound(String articleSearch) throws IOException {
+    public static boolean pageNotFound(String articleSearch) throws IOException {
         URL url = Finder.URLBuilder(articleSearch);
         InputStream inputStream = Finder.connector(url);
-        String finalInput = String.valueOf(Printer.JSONDataFormat(inputStream));
-        //System.out.println(finalInput);
+        InputStream finalInput = Printer.JSONDataFormat(inputStream);
         if (String.valueOf(finalInput).equals("{\"batchcomplete\":\"\",\"query\":{\"pages\":{\"-1\":{\"ns\":0,\"title\":\"" + articleSearch + "\",\"missing\":\"\"}}}}")) {
-
             return true;
-        } else {
-            return false;
         }
+
+        return false;
     }
     }

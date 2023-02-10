@@ -11,8 +11,8 @@ import java.net.URLConnection;
 public class PrinterTest {
     @Test
     public void JSONFormattedDataTest() throws IOException {
-        //InputStream dataStream = Thread.currentThread().getContextClassLoader().getResourceAsStream("jsonFormattedPrint.json");
-
-       // Assertions.assertEquals(dataStream);
+        InputStream dataStream = Thread.currentThread().getContextClassLoader().getResourceAsStream("jsonFormattedPrint.json");
+        Printer printTest = new Printer();
+        Assertions.assertEquals(dataStream, printTest);
     }
 }
