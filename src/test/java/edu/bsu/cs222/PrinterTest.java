@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import java.io.InputStream;
 
-public class Printer {
+public class PrinterTest {
     @Test
     public void JSONFormattedDataTest(){
         InputStream dataStream = Thread.currentThread().getContextClassLoader().getResourceAsStream("test.json");

@@ -5,7 +5,6 @@ import org.junit.jupiter.api.Assertions;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.net.URL;
 
 public class FinderTest {
 
@@ -30,5 +29,20 @@ public class FinderTest {
         InputStream testDataStream = Thread.currentThread().getContextClassLoader().getResourceAsStream("test.json");
         String timestamp = parser.parse(testDataStream);
         Assertions.assertEquals("2023-01-28T10:41:39Z", timestamp);
+    }
+
+    @Test
+    public void testBlank() throws IOException {
+        String articleSearch = "";
+        ErrorsTest blank = new ErrorsTest();
+        Boolean resultBool = Boolean.valueOf(Errors.errorBlank(articleSearch));
+        Assertions.assertFalse(resultBool);
+    }
+    @Test
+    public void testNotBlank() throws IOException {
+        String articleSearch = "D";
+        ErrorsTest blank = new ErrorsTest();
+        Boolean resultBool = Boolean.valueOf(Errors.errorBlank(articleSearch));
+        Assertions.assertTrue(resultBool);
     }
 }
