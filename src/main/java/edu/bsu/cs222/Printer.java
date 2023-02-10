@@ -8,14 +8,14 @@ import java.io.InputStreamReader;
 public class Printer {
     public Printer() throws IOException {
 
+
     }
-    public static InputStream JSONDataFormat(InputStream inputStream) throws IOException {
-        BufferedReader in = new BufferedReader(new InputStreamReader(inputStream));
+    public void JSONDataFormat() throws IOException {
+       /* BufferedReader in = new BufferedReader(new InputStreamReader());
         String inputLine;
         while ((inputLine = in.readLine()) != null)
             System.out.println(inputLine);
-        in.close();
-        return inputStream;
+        in.close();*/
     }
 }
 

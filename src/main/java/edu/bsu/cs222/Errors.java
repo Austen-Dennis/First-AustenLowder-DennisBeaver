@@ -14,7 +14,7 @@ public class Errors {
     public static boolean pageNotFound(String articleSearch) throws IOException {
         URL url = Finder.URLBuilder(articleSearch);
         InputStream inputStream = Finder.connector(url);
-        InputStream finalInput = Printer.JSONDataFormat(inputStream);
+        InputStream finalInput = Printer.JSONDataFormat();
         if (String.valueOf(finalInput).equals("{\"batchcomplete\":\"\",\"query\":{\"pages\":{\"-1\":{\"ns\":0,\"title\":\"" + articleSearch + "\",\"missing\":\"\"}}}}")) {
             return true;
         }
