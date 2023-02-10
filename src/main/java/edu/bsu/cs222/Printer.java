@@ -10,7 +10,7 @@ public class Printer {
 
 
     }
-    public void JSONDataFormat() throws IOException {
+    public static void JSONDataFormat() throws IOException {
        /* BufferedReader in = new BufferedReader(new InputStreamReader());
         String inputLine;
         while ((inputLine = in.readLine()) != null)
