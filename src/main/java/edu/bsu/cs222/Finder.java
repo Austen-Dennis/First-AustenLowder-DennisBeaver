@@ -11,7 +11,6 @@ public class Finder {
 
     public Finder() {
         String articleSearch = "";
-        //Printer.JSONDataFormat();
     }
 
 
