@@ -12,18 +12,18 @@ public class Printer {
         JSONDataFormat(Finder.URLBuilder(articleSearch));
 
     }
-    public void JSONDataFormat(URL url) throws IOException {
-        String inline = "";
+    public static void JSONDataFormat(URL url) throws IOException {
+        String jsonLine = "";
         Scanner sc = new Scanner(url.openStream());
         while(sc.hasNext())
         {
-            inline+=sc.nextLine();
+            jsonLine+=sc.nextLine();
         }
-        JSONArray user = (JSONArray) JsonPath.read(inline, "$..user");
+        JSONArray user = (JSONArray) JsonPath.read(jsonLine, "$..user");
         System.out.println(user);
-        JSONArray timestamp = (JSONArray) JsonPath.read(inline, "$..timestamp");
+        JSONArray timestamp = (JSONArray) JsonPath.read(jsonLine, "$..timestamp");
         System.out.println(timestamp);
-        JSONArray revision = (JSONArray) JsonPath.read(inline, "$..revisions");
+        JSONArray revision = (JSONArray) JsonPath.read(jsonLine, "$..revisions");
         System.out.println(revision);
 
         sc.close();
