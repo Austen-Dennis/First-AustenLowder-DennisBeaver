@@ -9,7 +9,7 @@ import java.net.URL;
 public class Finder {
 
     public Finder() throws IOException {
-        String articleSearch = "james";
+        String articleSearch = "James";
         new Printer(articleSearch);
     }
     public static URL URLBuilder(String articleSearch) throws IOException {
