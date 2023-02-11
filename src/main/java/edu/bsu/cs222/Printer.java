@@ -1,21 +1,32 @@
 package edu.bsu.cs222;
-import java.io.BufferedReader;
+import com.jayway.jsonpath.JsonPath;
+import net.minidev.json.JSONArray;
+
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+import java.net.URL;
+import java.util.Scanner;
 
 
 public class Printer {
     public Printer(String articleSearch) throws IOException {
-        JSONDataFormat(Finder.connector(Finder.URLBuilder(articleSearch)));
+        JSONDataFormat(Finder.URLBuilder(articleSearch));
 
     }
-    public void JSONDataFormat(InputStream inputStream) throws IOException {
-        BufferedReader in = new BufferedReader(new InputStreamReader(inputStream));
-        String inputLine;
-        while ((inputLine = in.readLine()) != null)
-            System.out.println(inputLine);
-        in.close();
+    public void JSONDataFormat(URL url) throws IOException {
+        String inline = "";
+        Scanner sc = new Scanner(url.openStream());
+        while(sc.hasNext())
+        {
+            inline+=sc.nextLine();
+        }
+        JSONArray user = (JSONArray) JsonPath.read(inline, "$..user");
+        System.out.println(user);
+        JSONArray timestamp = (JSONArray) JsonPath.read(inline, "$..timestamp");
+        System.out.println(timestamp);
+        JSONArray revision = (JSONArray) JsonPath.read(inline, "$..revisions");
+        System.out.println(revision);
+
+        sc.close();
     }
 }
 

@@ -13,7 +13,5 @@ public class Errors {
     }
 
     public static void pageNotFound(String articleSearch) throws IOException {
-        InputStream inputStream = Finder.connector(URLBuilder(articleSearch));
-        //Printer.JSONDataFormat(URLBuilder(articleSearch));
     }
 }
