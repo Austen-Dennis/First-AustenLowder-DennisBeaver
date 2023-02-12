@@ -10,11 +10,37 @@ public class PrinterTest {
 
     @Test
     public void printUserTest() throws IOException {
-        String testLine = "[\"SidP\",\"Leschnei\",\"AndreaStar\",\"DavidJHowe\",\"DavidJHowe\",\"Bkonrad\",\"Giulia Picchiotti\",\"Giulia Picchiotti\",\"Giulia Picchiotti\",\"Bovineboy2008\",\"MSG17\",\"Tkanus\",\"Helpfuleditor101\",\"Luokehao\",\"Davidgoodheart\",\"Davidgoodheart\",\"Bkonrad\",\"SebastionArtCal\",\"Llammakey\",\"Tassedethe\",\"Bkonrad\",\"Danno uk\",\"Geo Swan\",\"Jamacfarlane\",\"MusikBot II\",\"Materialscientist\",\"Materialscientist\"]";
-        String jsonLine = Thread.currentThread().getContextClassLoader().getResourceAsStream("test.json").toString();
-        Printer print = new Printer(jsonLine);
-        Assertions.assertEquals(jsonLine, testLine);
+        String articleSearch = " ";
+        Printer printed = new Printer(articleSearch);
+        String testLine = "[]";
+        String result = printed.getUserList(articleSearch);
+        Assertions.assertEquals(testLine,result);
 
+    }
+    @Test
+    public void printUserTestNegative() throws IOException {
+        String articleSearch = " ";
+        Printer printed = new Printer(articleSearch);
+        String testLine = "[User]";
+        String result = printed.getUserList(articleSearch);
+        Assertions.assertEquals(testLine,result);
+
+    }
+    @Test
+    public void printTimestampTest() throws IOException {
+        String articleSearch = " ";
+        Printer printed = new Printer(articleSearch);
+        String testLine = "[]";
+        String result = printed.getTimestampListList(articleSearch);
+        Assertions.assertEquals(testLine,result);
+    }
+    @Test
+    public void printRevisionsTest() throws IOException {
+        String articleSearch = " ";
+        Printer printed = new Printer(articleSearch);
+        String testLine = "[]";
+        String result = printed.getTimestampListList(articleSearch);
+        Assertions.assertEquals(testLine,result);
     }
 
 }
