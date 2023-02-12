@@ -9,7 +9,7 @@ import java.net.URL;
 public class Finder {
 
     public Finder() throws IOException {
-        String articleSearch = " ";
+        String articleSearch = "James";
         new ArticleInfo(articleSearch);
     }
     public static URL URLBuilder(String articleSearch) throws IOException {
@@ -26,8 +26,5 @@ public class Finder {
         connection.connect();
         InputStream inputStream = connection.getInputStream();
     }
-    public String parse(InputStream testDataStream) throws IOException {
-        JSONArray result = (JSONArray) JsonPath.read(testDataStream, "$..timestamp");
-        return result.get(0).toString();
-    }
+
 }

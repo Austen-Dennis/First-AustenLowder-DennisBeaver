@@ -11,7 +11,7 @@ public class ArticleInfoTest {
         String articleSearch = " ";
         ArticleInfo info = new ArticleInfo(articleSearch);
         String testLine = "[]";
-        String result = info.getUserList(articleSearch);
+        String result = info.getUserList(articleSearch).toString();
         Assertions.assertEquals(testLine,result);
 
     }
@@ -19,9 +19,9 @@ public class ArticleInfoTest {
     public void getUserInfoTestNegative() throws IOException {
         String articleSearch = " ";
         ArticleInfo info = new ArticleInfo(articleSearch);
-        String testLine = "[User]";
-        String result = info.getUserList(articleSearch);
-        Assertions.assertEquals(testLine,result);
+        String testLine = "[]";
+        String result = info.getUserList(articleSearch).toString();
+        Assertions.assertNotEquals(testLine,result);
 
     }
     @Test
@@ -29,7 +29,7 @@ public class ArticleInfoTest {
         String articleSearch = " ";
         ArticleInfo info = new ArticleInfo(articleSearch);
         String testLine = "[]";
-        String result = info.getTimestampListList(articleSearch);
+        String result = info.getTimestampListList(articleSearch).toString();
         Assertions.assertEquals(testLine,result);
     }
     @Test
@@ -37,7 +37,7 @@ public class ArticleInfoTest {
         String articleSearch = " ";
         ArticleInfo info = new ArticleInfo(articleSearch);
         String testLine = "[]";
-        String result = info.getTimestampListList(articleSearch);
+        String result = info.getTimestampListList(articleSearch).toString();
         Assertions.assertEquals(testLine,result);
     }
 }
