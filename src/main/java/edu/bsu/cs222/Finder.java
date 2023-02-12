@@ -10,7 +10,7 @@ public class Finder {
 
     public Finder() throws IOException {
         String articleSearch = " ";
-        new Printer(articleSearch);
+        new ArticleInfo(articleSearch);
     }
     public static URL URLBuilder(String articleSearch) throws IOException {
         String articleName = articleSearch.replace(" ", "%20");
