@@ -9,7 +9,6 @@ import java.io.IOException;
 public class PrinterTest {
     @Test
     public void printTest() throws IOException {
-        String articleSearch = " ";
         String testLine = "{}";
         String result = " ";
         Assertions.assertEquals(testLine, result);
