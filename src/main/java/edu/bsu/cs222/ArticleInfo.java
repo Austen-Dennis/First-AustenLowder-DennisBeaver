@@ -8,7 +8,9 @@ import java.util.HashMap;
 import java.util.Scanner;
 
 public class ArticleInfo {
-    private String jsonLine = " ";
+    private static String jsonLine = " ";
+    String testLine = "{}";
+    String articleSearch = " ";
 
     HashMap<Integer, Object> revisionList = new HashMap<>();
     HashMap<Integer, Object> userList = new HashMap<>();
@@ -23,7 +25,7 @@ public class ArticleInfo {
         printer.printAll(userList,timestampList, revisionList,redirect(jsonLine));
     }
 
-    public void JSONReader(URL url) throws IOException {
+    public static void JSONReader(URL url) throws IOException {
         Scanner sc = new Scanner(url.openStream());
         while (sc.hasNext()) {
             jsonLine += sc.nextLine();
@@ -53,14 +55,17 @@ public class ArticleInfo {
         }
         return timestampList;
     }
-    public String redirect(String jsonLine) throws IOException {
-        JSONArray redirects = JsonPath.read(jsonLine, "$..redirects");
-        Scanner findMissing = new Scanner(Finder.URLBuilder(jsonLine).openStream());
-        while(findMissing.hasNext())
+    public static String redirect(String articleSearch) throws IOException {
+        jsonLine = "";
+        Scanner findRedirect = new Scanner(Finder.URLBuilder(articleSearch).openStream());
+        while(findRedirect.hasNext())
         {
-            jsonLine+=findMissing.nextLine();
+            jsonLine+=findRedirect.nextLine();
         }
+        JSONArray redirects = JsonPath.read(jsonLine, "$..redirects");
         return redirects.toString();
+
+
     }
 }
 

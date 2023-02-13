@@ -1,5 +1,6 @@
 package edu.bsu.cs222;
 
+import net.minidev.json.writer.JsonReader;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -38,17 +39,5 @@ public class ArticleInfoTest {
         String testLine = "{}";
         String result = info.getRevisionList(articleSearch).toString();
         Assertions.assertEquals(result,testLine);
-    }
-    @Test
-    public void testRedirect() throws IOException {
-        String articleSearch = "Zappa";
-        String resultString = ArticleInfo.redirect();
-        Assertions.assertEquals();
-    }
-    @Test
-    public void testNotRedirect() throws IOException {
-        String articleSearch = "Frank Zappa";
-        Boolean resultBool = Boolean.valueOf(ArticleInfo.redirect(articleSearch));
-        Assertions.assertFalse(resultBool);
     }
 }
