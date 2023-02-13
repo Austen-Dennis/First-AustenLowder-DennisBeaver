@@ -6,11 +6,12 @@ import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
+
 public class Finder {
 
     public Finder() throws IOException {
         String articleSearch = "James";
-        new ArticleInfo(articleSearch);
+        new ArticleInfo(Finder.URLBuilder(articleSearch));
     }
     public static URL URLBuilder(String articleSearch) throws IOException {
         String articleName = articleSearch.replace(" ", "%20");

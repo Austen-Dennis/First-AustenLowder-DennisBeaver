@@ -5,25 +5,21 @@ import net.minidev.json.JSONArray;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 public class ArticleInfo {
     private String jsonLine = " ";
-    private List<String> userList = new ArrayList<String>();
-    private List<String> timestampList = new ArrayList<String>();
-    private List<String> revisionList = new ArrayList<String>();
+    HashMap<Integer, Object> revisionList = new HashMap<Integer, Object>();
+    HashMap<Integer, Object> userList = new HashMap<Integer, Object>();
+    HashMap<Integer, Object> timestampList = new HashMap<Integer, Object>();
 
-    public ArticleInfo(String articleSearch) throws IOException {
-        JSONReader(Finder.URLBuilder(articleSearch));
+    public ArticleInfo(URL url) throws IOException {
+        JSONReader(url);
         getUserList(jsonLine);
-        getRevisionList(jsonLine);
-        getTimestampListList(jsonLine);
-        new Printer();
-
-
+        getTimestampList(jsonLine);
+        new Printer(userList,timestampList,revisionList);
     }
 
     public String JSONReader(URL url) throws IOException {
@@ -35,24 +31,28 @@ public class ArticleInfo {
         return jsonLine;
     }
 
-    public List getRevisionList(String jsonLine) {
+    public HashMap<Integer, Object> getRevisionList(String jsonLine) {
+
         JSONArray revision = (JSONArray) JsonPath.read(jsonLine, "$..revisions");
         for (int i = 0; i < revision.size(); i++) {
-            revisionList.add((String) revision.get(i));
+            revisionList.put(i, revision.get(i));
         }
         return revisionList;
     }
-    public List getUserList(String jsonLine) {
+    public HashMap<Integer, Object> getUserList(String jsonLine) {
+
         JSONArray user = (JSONArray) JsonPath.read(jsonLine, "$..user");
         for (int i = 0; i < user.size(); i++) {
-            userList.add((String) user.get(i));
+            userList.put(i , user.get(i));
+
         }
         return userList;
     }
-    public List getTimestampListList(String jsonLine) {
-        JSONArray timestamp = ((JSONArray) JsonPath.read(jsonLine, "$..timestamp"));
-        for (int i = 0; i < timestamp.size(); i++) {
-            timestampList.add((String) timestamp.get(i));
+    public HashMap<Integer, Object> getTimestampList(String jsonLine) {
+        JSONArray timestamp = (JSONArray) JsonPath.read(jsonLine, "$..timestamp");
+        for (int i = 0; i < timestampList.size(); i++) {
+            timestampList.put(i, timestamp.get(i));
+            System.out.println(timestampList.get(i));
         }
         return timestampList;
     }

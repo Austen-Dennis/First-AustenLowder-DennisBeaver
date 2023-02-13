@@ -14,10 +14,7 @@ public class Parser {
         JSONArray result = (JSONArray) JsonPath.read(testDataStream, "$..timestamp");
         return result.get(0).toString();
     }
-    public String revisionsParse(InputStream testDataStream) throws IOException {
-        JSONArray result = (JSONArray) JsonPath.read(testDataStream, "$..revisions");
-        return result.get(0).toString();
-    }
+
     public String userParse(InputStream testDataStream) throws IOException {
         JSONArray result = (JSONArray) JsonPath.read(testDataStream, "$..user");
         return result.get(0).toString();

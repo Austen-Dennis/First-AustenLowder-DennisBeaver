@@ -10,7 +10,7 @@ import java.util.Scanner;
 
 public class Errors {
     public static Boolean errorBlank(String articleSearch) {
-        if (articleSearch.equals("")) {
+        if (articleSearch.equals(" ")) {
             return false;
         } else return true;
     }

@@ -9,8 +9,8 @@ public class ArticleInfoTest {
     @Test
     public void getUserInfoTest() throws IOException {
         String articleSearch = " ";
-        ArticleInfo info = new ArticleInfo(articleSearch);
-        String testLine = "[]";
+        ArticleInfo info = new ArticleInfo(Finder.URLBuilder(articleSearch));
+        String testLine = "{}";
         String result = info.getUserList(articleSearch).toString();
         Assertions.assertEquals(testLine,result);
 
@@ -18,26 +18,26 @@ public class ArticleInfoTest {
     @Test
     public void getUserInfoTestNegative() throws IOException {
         String articleSearch = " ";
-        ArticleInfo info = new ArticleInfo(articleSearch);
-        String testLine = "[]";
+        ArticleInfo info = new ArticleInfo(Finder.URLBuilder(articleSearch));
+        String testLine = "[User]";
         String result = info.getUserList(articleSearch).toString();
-        Assertions.assertNotEquals(testLine,result);
+        Assertions.assertNotEquals(testLine, result);
 
     }
     @Test
     public void getTimestampInfoTest() throws IOException {
         String articleSearch = " ";
-        ArticleInfo info = new ArticleInfo(articleSearch);
-        String testLine = "[]";
-        String result = info.getTimestampListList(articleSearch).toString();
+        ArticleInfo info = new ArticleInfo(Finder.URLBuilder(articleSearch));
+        String testLine = "{}";
+        String result = info.getTimestampList(articleSearch).toString();
         Assertions.assertEquals(testLine,result);
     }
     @Test
     public void getRevisionsInfoTest() throws IOException {
         String articleSearch = " ";
-        ArticleInfo info = new ArticleInfo(articleSearch);
-        String testLine = "[]";
-        String result = info.getTimestampListList(articleSearch).toString();
-        Assertions.assertEquals(testLine,result);
+        ArticleInfo info = new ArticleInfo(Finder.URLBuilder(articleSearch));
+        String testLine = "{}";
+        String result = info.getRevisionList(articleSearch).toString();
+        Assertions.assertEquals(result,testLine);
     }
 }
