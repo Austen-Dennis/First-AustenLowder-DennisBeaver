@@ -6,7 +6,7 @@ import java.net.URL;
 
 
 public class Finder {
-
+    private static Printer print = new Printer();
     public Finder(String articleSearch) throws IOException {
         new ArticleInfo(Finder.URLBuilder(articleSearch));
     }
@@ -18,10 +18,19 @@ public class Finder {
         connector(url);
         return url;
     }
-    public static void connector(URL url) throws IOException {
-        HttpURLConnection connection = (HttpURLConnection)url.openConnection();
+    public static void connector(URL url) {
+        HttpURLConnection connection = null;
+        try {
+            connection = (HttpURLConnection)url.openConnection();
+        } catch (IOException e) {
+            print.printNetworkError();
+        }
         connection.setRequestProperty("User-Agent", "Revision Reporter/0.1 (austen.lowder@bsu.edu)");
-        connection.connect();
+        try {
+            connection.connect();
+        } catch (IOException e) {
+            print.printNetworkError();
+        }
     }
 
 }

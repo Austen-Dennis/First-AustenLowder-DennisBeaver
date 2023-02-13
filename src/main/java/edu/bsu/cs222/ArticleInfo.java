@@ -20,7 +20,7 @@ public class ArticleInfo {
         getTimestampList(jsonLine);
         getRevisionList(jsonLine);
         Printer printer = new Printer();
-        printer.printAll(userList,timestampList, revisionList);
+        printer.printAll(userList,timestampList, revisionList,redirect(jsonLine));
     }
 
     public void JSONReader(URL url) throws IOException {
@@ -53,16 +53,14 @@ public class ArticleInfo {
         }
         return timestampList;
     }
-    public static boolean redirect(String articleSearch) throws IOException {
-        String jsonLine = "";
-        Scanner findMissing = new Scanner(Finder.URLBuilder(articleSearch).openStream());
+    public String redirect(String jsonLine) throws IOException {
+        JSONArray redirects = JsonPath.read(jsonLine, "$..redirects");
+        Scanner findMissing = new Scanner(Finder.URLBuilder(jsonLine).openStream());
         while(findMissing.hasNext())
         {
             jsonLine+=findMissing.nextLine();
         }
-        JSONArray redirectStatus = JsonPath.read(jsonLine, "$..redirects");
-        System.out.println(redirectStatus);
-        return !redirectStatus.isEmpty();
+        return redirects.toString();
     }
 }
 

@@ -42,13 +42,13 @@ public class ArticleInfoTest {
     @Test
     public void testRedirect() throws IOException {
         String articleSearch = "Zappa";
-        Boolean resultBool = ArticleInfo.redirect(articleSearch);
-        Assertions.assertTrue(resultBool);
+        String resultString = ArticleInfo.redirect();
+        Assertions.assertEquals();
     }
     @Test
     public void testNotRedirect() throws IOException {
         String articleSearch = "Frank Zappa";
-        Boolean resultBool = ArticleInfo.redirect(articleSearch);
+        Boolean resultBool = Boolean.valueOf(ArticleInfo.redirect(articleSearch));
         Assertions.assertFalse(resultBool);
     }
 }

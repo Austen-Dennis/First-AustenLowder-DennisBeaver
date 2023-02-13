@@ -7,7 +7,7 @@ public class Printer {
 
     }
 
-    public void printAll(HashMap<Integer, Object> userList, HashMap<Integer, Object> timestampList, HashMap<Integer, Object> revisionList){
+    public void printAll(HashMap<Integer, Object> userList, HashMap<Integer, Object> timestampList, HashMap<Integer, Object> revisionList, String redirect){
         for (int user : userList.keySet()) {
             System.out.print(user + 1 + " ");
             System.out.print(userList.get(user) + " ");
@@ -15,6 +15,7 @@ public class Printer {
             System.out.println();
         }
         System.out.println();
+        System.out.println("Redirected to: " + redirect);
         System.out.println("All revisions: " + revisionList);
         }
         public void printNoPageFound(){
