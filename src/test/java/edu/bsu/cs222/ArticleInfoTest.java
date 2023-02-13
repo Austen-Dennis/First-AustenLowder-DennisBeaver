@@ -39,4 +39,16 @@ public class ArticleInfoTest {
         String result = info.getRevisionList(articleSearch).toString();
         Assertions.assertEquals(result,testLine);
     }
+    @Test
+    public void testRedirect() throws IOException {
+        String articleSearch = "Zappa";
+        Boolean resultBool = ArticleInfo.redirect(articleSearch);
+        Assertions.assertTrue(resultBool);
+    }
+    @Test
+    public void testNotRedirect() throws IOException {
+        String articleSearch = "Frank Zappa";
+        Boolean resultBool = ArticleInfo.redirect(articleSearch);
+        Assertions.assertFalse(resultBool);
+    }
 }

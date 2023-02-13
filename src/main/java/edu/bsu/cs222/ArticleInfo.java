@@ -52,6 +52,17 @@ public class ArticleInfo {
         }
         return timestampList;
     }
+    public static boolean redirect(String articleSearch) throws IOException {
+        String jsonLine = "";
+        Scanner findMissing = new Scanner(Finder.URLBuilder(articleSearch).openStream());
+        while(findMissing.hasNext())
+        {
+            jsonLine+=findMissing.nextLine();
+        }
+        JSONArray redirectStatus = JsonPath.read(jsonLine, "$..redirects");
+        System.out.println(redirectStatus);
+        return !redirectStatus.isEmpty();
+    }
 }
 
 
