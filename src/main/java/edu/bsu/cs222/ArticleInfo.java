@@ -9,8 +9,6 @@ import java.util.Scanner;
 
 public class ArticleInfo {
     private static String jsonLine = " ";
-    String testLine = "{}";
-    String articleSearch = " ";
 
     HashMap<Integer, Object> revisionList = new HashMap<>();
     HashMap<Integer, Object> userList = new HashMap<>();
