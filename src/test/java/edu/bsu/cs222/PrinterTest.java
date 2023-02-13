@@ -9,9 +9,9 @@ import java.io.IOException;
 public class PrinterTest {
     @Test
     public void printTest() throws IOException {
-        String testLine = "{}";
-        String result = " ";
-        Assertions.assertEquals(testLine, result);
+        String articleSearch = "James";
+        ArticleInfo info = new ArticleInfo(Finder.URLBuilder(articleSearch));
+        info.JSONReader(Finder.URLBuilder(articleSearch));
     }
 
 

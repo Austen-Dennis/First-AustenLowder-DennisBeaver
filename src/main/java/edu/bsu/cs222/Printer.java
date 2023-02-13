@@ -3,12 +3,13 @@ import java.util.HashMap;
 
 public class Printer {
 
-    public Printer(HashMap<Integer, Object> userList, HashMap<Integer, Object> timestampList, HashMap<Integer, Object> revisionList) {
-        printALl(userList,timestampList,revisionList);
+    public Printer() {
+
     }
-    public void printALl(HashMap<Integer, Object> userList, HashMap<Integer, Object> timestampList, HashMap<Integer, Object> revisionList){
+
+    public void printAll(HashMap<Integer, Object> userList, HashMap<Integer, Object> timestampList, HashMap<Integer, Object> revisionList){
         for (int user : userList.keySet()) {
-            System.out.print(user + " ");
+            System.out.print(user + 1 + " ");
             System.out.print(userList.get(user) + " ");
             System.out.print(timestampList.get(user) + " ");
             System.out.println();
@@ -16,7 +17,19 @@ public class Printer {
         System.out.println();
         System.out.println("All revisions: " + revisionList);
         }
-    }
+        public void printNoPageFound(){
+            System.out.print("Page not found: exiting program");
+            System.exit(0);
+        }
+        public void printNetworkError(){
+            System.out.println("Could not connect to server: exiting program");
+            System.exit(0);
+        }
+        public void printNoPageRequested(){
+            System.out.println("No page requested: exiting program");
+            System.exit(0);
+        }
+}
 
 
 

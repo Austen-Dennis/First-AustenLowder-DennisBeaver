@@ -10,16 +10,17 @@ import java.util.Scanner;
 public class ArticleInfo {
     private String jsonLine = " ";
 
-    private HashMap<Integer, Object> revisionList = new HashMap<>();
-    private HashMap<Integer, Object> userList = new HashMap<>();
-    private HashMap<Integer, Object> timestampList = new HashMap<>();
+    HashMap<Integer, Object> revisionList = new HashMap<>();
+    HashMap<Integer, Object> userList = new HashMap<>();
+    HashMap<Integer, Object> timestampList = new HashMap<>();
 
     public ArticleInfo(URL url) throws IOException {
         JSONReader(url);
         getUserList(jsonLine);
         getTimestampList(jsonLine);
         getRevisionList(jsonLine);
-        new Printer(userList,timestampList, revisionList);
+        Printer printer = new Printer();
+        printer.printAll(userList,timestampList, revisionList);
     }
 
     public void JSONReader(URL url) throws IOException {

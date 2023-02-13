@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="edu.bsu.cs222.ParserTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2023-02-13T19:13:16" hostname="AUSTEN_IS_SEXY" time="0.072">
+  <properties/>
+  <testcase name="testTimestampJSON()" classname="edu.bsu.cs222.ParserTest" time="0.067"/>
+  <testcase name="testUserJSON()" classname="edu.bsu.cs222.ParserTest" time="0.004"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+]]></system-err>
+</testsuite>
