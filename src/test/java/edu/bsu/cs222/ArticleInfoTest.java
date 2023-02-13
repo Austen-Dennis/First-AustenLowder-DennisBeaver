@@ -1,12 +1,24 @@
 package edu.bsu.cs222;
 
-import net.minidev.json.writer.JsonReader;
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 
 public class ArticleInfoTest {
+    @Test
+    public void testRedirect() throws IOException {
+        String articleSearch = "Zappa";
+        String resultString = ArticleInfo.redirect(articleSearch);
+        Assertions.assertEquals(resultString, "[[{\"from\":\"Zappa\",\"to\":\"Frank Zappa\"}]]");
+    }
+    @Test
+    public void testNotRedirect() throws IOException {
+        String articleSearch = "Frank Zappa";
+        String resultStringEmpty = ArticleInfo.redirect(articleSearch);
+        Assertions.assertEquals(resultStringEmpty, "[]");
+    }
     @Test
     public void getUserInfoTest() throws IOException {
         String articleSearch = " ";
@@ -35,9 +47,8 @@ public class ArticleInfoTest {
     @Test
     public void getRevisionsInfoTest() throws IOException {
         String articleSearch = " ";
-        ArticleInfo info = new ArticleInfo(Finder.URLBuilder(articleSearch));
         String testLine = "{}";
-        String result = info.getRevisionList(articleSearch).toString();
+        String result = ArticleInfo.getRevisionList(articleSearch).toString();
         Assertions.assertEquals(result,testLine);
     }
 }

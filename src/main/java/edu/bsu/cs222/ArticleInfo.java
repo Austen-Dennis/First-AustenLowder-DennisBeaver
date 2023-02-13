@@ -10,7 +10,7 @@ import java.util.Scanner;
 public class ArticleInfo {
     private static String jsonLine = " ";
 
-    HashMap<Integer, Object> revisionList = new HashMap<>();
+    static HashMap<Integer, Object> revisionList = new HashMap<>();
     HashMap<Integer, Object> userList = new HashMap<>();
     HashMap<Integer, Object> timestampList = new HashMap<>();
 
@@ -31,7 +31,7 @@ public class ArticleInfo {
         sc.close();
     }
 
-    public HashMap<Integer, Object> getRevisionList(String jsonLine) {
+    public static HashMap<Integer, Object> getRevisionList(String jsonLine) {
         JSONArray revision = JsonPath.read(jsonLine, "$..revisions");
         for (int i = 0; i < revision.size(); i++) {
             revisionList.put(i, revision.get(i));
