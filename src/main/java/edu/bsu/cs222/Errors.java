@@ -4,6 +4,9 @@ import com.jayway.jsonpath.JsonPath;
 import net.minidev.json.JSONArray;
 
 import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLConnection;
 import java.util.Scanner;
 
 public class Errors {
@@ -21,6 +24,19 @@ public class Errors {
         JSONArray missing = JsonPath.read(jsonLine, "$..missing");
         System.out.println(missing);
         return !missing.isEmpty();
+    }
+    public static boolean connectionError(URL url) {
+        boolean connectionStatus;
+        try {
+            URLConnection connection = url.openConnection();
+            connection.connect();
+            connectionStatus = true;
+        } catch (MalformedURLException e) {
+            connectionStatus = false;
+        } catch (IOException e) {
+            connectionStatus = false;
+        }
+        return connectionStatus;
     }
     }
 
