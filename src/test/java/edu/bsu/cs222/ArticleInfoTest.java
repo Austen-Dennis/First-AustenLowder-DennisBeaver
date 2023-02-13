@@ -12,8 +12,7 @@ public class ArticleInfoTest {
         ArticleInfo info = new ArticleInfo(Finder.URLBuilder(articleSearch));
         String testLine = "{}";
         String result = info.getUserList(articleSearch).toString();
-        Assertions.assertEquals(testLine,result);
-
+        Assertions.assertEquals(testLine, result);
     }
     @Test
     public void getUserInfoTestNegative() throws IOException {

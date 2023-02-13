@@ -1,12 +1,19 @@
 package edu.bsu.cs222;
 
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
-import java.io.InputStream;
 
 public class PrinterTest {
+    @Test
+    public void printTest() throws IOException {
+        String articleSearch = " ";
+        String testLine = "{}";
+        String result = " ";
+        Assertions.assertEquals(testLine, result);
+    }
 
 
 

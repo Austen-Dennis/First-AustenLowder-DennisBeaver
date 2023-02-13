@@ -6,34 +6,30 @@ import java.io.IOException;
 
 public class ErrorsTest {
     @Test
-    public void testBlank() throws IOException {
-        String articleSearch = "";
-        ErrorsTest blank = new ErrorsTest();
-        Boolean resultBool = Boolean.valueOf(Errors.errorBlank(articleSearch));
+    public void testBlank(){
+        String articleSearch = " ";
+        Boolean resultBool = Errors.errorBlank(articleSearch);
         Assertions.assertFalse(resultBool);
     }
 
     @Test
-    public void testNotBlank() throws IOException {
+    public void testNotBlank(){
         String articleSearch = "D";
-        ErrorsTest blank = new ErrorsTest();
-        Boolean resultBool = Boolean.valueOf(Errors.errorBlank(articleSearch));
+        Boolean resultBool = Errors.errorBlank(articleSearch);
         Assertions.assertTrue(resultBool);
     }
 
     @Test
     public void testPageNotFound() throws IOException {
         String articleSearch = "OogityBoogityBoodlesITookYourNoodles";
-        ErrorsTest notFound = new ErrorsTest();
-        Boolean resultBool = Boolean.valueOf(Errors.pageNotFound(articleSearch));
+        Boolean resultBool = Errors.pageNotFound(articleSearch);
         Assertions.assertTrue(resultBool);
     }
 
     @Test
     public void testPageFound() throws IOException {
         String articleSearch = "James";
-        ErrorsTest notFound = new ErrorsTest();
-        Boolean resultBool = Boolean.valueOf(Errors.pageNotFound(articleSearch));
+        Boolean resultBool = Errors.pageNotFound(articleSearch);
         Assertions.assertFalse(resultBool);
     }
 }

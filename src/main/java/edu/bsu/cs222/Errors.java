@@ -4,15 +4,11 @@ import com.jayway.jsonpath.JsonPath;
 import net.minidev.json.JSONArray;
 
 import java.io.IOException;
-import java.io.InputStream;
-import java.net.URL;
 import java.util.Scanner;
 
 public class Errors {
     public static Boolean errorBlank(String articleSearch) {
-        if (articleSearch.equals(" ")) {
-            return false;
-        } else return true;
+        return !articleSearch.equals(" ");
     }
 
     public static boolean pageNotFound(String articleSearch) throws IOException {
@@ -22,13 +18,9 @@ public class Errors {
         {
             jsonLine+=findMissing.nextLine();
         }
-        JSONArray missing = (JSONArray) JsonPath.read(jsonLine, "$..missing");
+        JSONArray missing = JsonPath.read(jsonLine, "$..missing");
         System.out.println(missing);
-        if (missing.isEmpty()) {
-            return false;
-        } else {
-            return true;
-        }
+        return !missing.isEmpty();
     }
     }
 

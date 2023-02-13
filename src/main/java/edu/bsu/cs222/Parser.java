@@ -11,12 +11,12 @@ public class Parser {
 
     }
     public String timestampParse(InputStream testDataStream) throws IOException {
-        JSONArray result = (JSONArray) JsonPath.read(testDataStream, "$..timestamp");
+        JSONArray result =  JsonPath.read(testDataStream, "$..timestamp");
         return result.get(0).toString();
     }
 
     public String userParse(InputStream testDataStream) throws IOException {
-        JSONArray result = (JSONArray) JsonPath.read(testDataStream, "$..user");
+        JSONArray result =  JsonPath.read(testDataStream, "$..user");
         return result.get(0).toString();
     }
 }

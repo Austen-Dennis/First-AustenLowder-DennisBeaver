@@ -1,7 +1,5 @@
 package edu.bsu.cs222;
 
-import com.jayway.jsonpath.JsonPath;
-import net.minidev.json.JSONArray;
 import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -25,7 +23,6 @@ public class Finder {
         HttpURLConnection connection = (HttpURLConnection)url.openConnection();
         connection.setRequestProperty("User-Agent", "Revision Reporter/0.1 (austen.lowder@bsu.edu)");
         connection.connect();
-        InputStream inputStream = connection.getInputStream();
     }
 
 }
