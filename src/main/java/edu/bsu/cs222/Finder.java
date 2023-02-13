@@ -7,8 +7,7 @@ import java.net.URL;
 
 public class Finder {
 
-    public Finder() throws IOException {
-        String articleSearch = "James";
+    public Finder(String articleSearch) throws IOException {
         new ArticleInfo(Finder.URLBuilder(articleSearch));
     }
     public static URL URLBuilder(String articleSearch) throws IOException {

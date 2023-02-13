@@ -2,9 +2,13 @@ package edu.bsu.cs222;
 
 
 import java.io.IOException;
+import java.util.Scanner;
 
 public class main {
     public static void main(String[] args) throws IOException {
-        new Finder();
+        Scanner search = new Scanner(System.in);
+        System.out.println("Give article name:");
+        String searchValue = search.nextLine();
+        new Finder(searchValue);
     }
 }
