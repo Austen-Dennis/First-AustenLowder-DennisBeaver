@@ -26,7 +26,7 @@ public class Printer {
             System.out.println("Could not connect to server: exiting program");
             System.exit(0);
         }
-        public static void printNoPageRequested(){
+        public void printNoPageRequested(){
             System.out.println("No page requested: exiting program");
             System.exit(0);
         }
