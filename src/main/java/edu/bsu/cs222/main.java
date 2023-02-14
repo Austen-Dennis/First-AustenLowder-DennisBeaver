@@ -9,16 +9,13 @@ public class main {
         Scanner search = new Scanner(System.in);
         System.out.println("Provide an article name:");
         String searchValue = search.nextLine();
-<<<<<<< HEAD
+
         if(searchValue.equals("")) {
             Printer.printNoPageRequested();
         }
             else{
             new Finder(searchValue);
 
-        }    }
-=======
-        new Finder(searchValue);
+        }
     }
->>>>>>> parent of 301829f (Set up some usre view and put a conditional for urls)
 }
