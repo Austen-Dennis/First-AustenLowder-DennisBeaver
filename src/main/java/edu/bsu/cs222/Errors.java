@@ -10,11 +10,8 @@ import java.net.URLConnection;
 import java.util.Scanner;
 
 public class Errors {
-    public static boolean errorBlank(String articleSearch) {
-        if (articleSearch == "") {
-            return true;
-        }
-        return false;
+    public static Boolean errorBlank(String articleSearch) {
+        return !articleSearch.equals(" ");
     }
 
     public static boolean pageNotFound(String articleSearch) throws IOException {

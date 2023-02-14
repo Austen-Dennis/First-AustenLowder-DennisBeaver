@@ -9,6 +9,11 @@ public class main {
         Scanner search = new Scanner(System.in);
         System.out.println("Provide an article name:");
         String searchValue = search.nextLine();
-        new Finder(searchValue);
-    }
+        if(searchValue.equals("")) {
+            Printer.printNoPageRequested();
+        }
+            else{
+            new Finder(searchValue);
+
+        }    }
 }

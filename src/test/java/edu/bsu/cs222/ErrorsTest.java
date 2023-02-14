@@ -10,16 +10,16 @@ import java.net.URLConnection;
 public class ErrorsTest {
     @Test
     public void testBlank() {
-        String articleSearch = "";
+        String articleSearch = " ";
         Boolean resultBool = Errors.errorBlank(articleSearch);
-        Assertions.assertTrue(resultBool);
+        Assertions.assertFalse(resultBool);
     }
 
     @Test
     public void testNotBlank() {
         String articleSearch = "D";
         Boolean resultBool = Errors.errorBlank(articleSearch);
-        Assertions.assertFalse(resultBool);
+        Assertions.assertTrue(resultBool);
     }
 
     @Test

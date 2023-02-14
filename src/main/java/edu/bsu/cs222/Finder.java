@@ -8,20 +8,16 @@ import java.net.URL;
 public class Finder {
     private static Printer print = new Printer();
     public Finder(String articleSearch) throws IOException {
-        Printer print = new Printer();
-        print.printNoPageFound(articleSearch);
-        print.printNoPageRequested(articleSearch);
         new ArticleInfo(Finder.URLBuilder(articleSearch));
     }
     public static URL URLBuilder(String articleSearch) throws IOException {
         String articleName = articleSearch.replace(" ", "%20");
         URL url = new URL("https://en.wikipedia.org/w/api.php?action=query&format=json&prop=revisions&titles="
                             + articleName +"&rvprop=timestamp|user&rvlimit=27&redirects");
-
         connector(url);
         return url;
     }
-    public static void connector(URL url) throws IOException {
+    public static void connector(URL url) {
         HttpURLConnection connection = null;
         try {
             connection = (HttpURLConnection)url.openConnection();
