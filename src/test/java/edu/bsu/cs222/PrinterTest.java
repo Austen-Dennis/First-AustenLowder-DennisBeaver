@@ -1,17 +1,16 @@
 package edu.bsu.cs222;
 
-
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import java.io.IOException;
 
 public class PrinterTest {
+
     @Test
-    public void printTest() throws IOException {
-        String articleSearch = "James";
-        ArticleInfo info = new ArticleInfo(Finder.URLBuilder(articleSearch));
-        info.JSONReader(Finder.URLBuilder(articleSearch));
+    public void printTest(){
+        String testLine = "Redirected to: []\n" + "All revisions: {}";
+        Printer printTest = new Printer();
+        Assertions.assertEquals(testLine, printTest);
     }
 
 

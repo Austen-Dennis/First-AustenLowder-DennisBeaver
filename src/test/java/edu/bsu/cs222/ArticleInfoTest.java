@@ -45,7 +45,7 @@ public class ArticleInfoTest {
         Assertions.assertEquals(testLine,result);
     }
     @Test
-    public void getRevisionsInfoTest() throws IOException {
+    public void getRevisionsInfoTest(){
         String articleSearch = " ";
         String testLine = "{}";
         String result = ArticleInfo.getRevisionList(articleSearch).toString();
