@@ -9,6 +9,12 @@ public class main {
         Scanner search = new Scanner(System.in);
         System.out.println("Provide an article name:");
         String searchValue = search.nextLine();
-        new Finder(searchValue);
-    }
+        if(searchValue.equals("")){
+            Printer.printNoPageRequested();
+        } else if(Finder.URLBuilder(searchValue).equals("https://en.wikipedia.org/w/api.php?action=query&format=json&prop=revisions&titles=&rvprop=timestamp|user&rvlimit=27&redirects")){
+
+        }else{
+            new Finder(searchValue);
+
+        }    }
 }

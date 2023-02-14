@@ -14,7 +14,6 @@ public class Finder {
         String articleName = articleSearch.replace(" ", "%20");
         URL url = new URL("https://en.wikipedia.org/w/api.php?action=query&format=json&prop=revisions&titles="
                             + articleName +"&rvprop=timestamp|user&rvlimit=27&redirects");
-
         connector(url);
         return url;
     }
