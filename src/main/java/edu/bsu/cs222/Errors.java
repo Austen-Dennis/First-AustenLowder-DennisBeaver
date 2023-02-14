@@ -25,7 +25,6 @@ public class Errors {
             jsonLine+=findMissing.nextLine();
         }
         JSONArray missing = JsonPath.read(jsonLine, "$..missing");
-        System.out.println(missing);
         return !missing.isEmpty();
     }
     public static boolean connectionError(URL url) {

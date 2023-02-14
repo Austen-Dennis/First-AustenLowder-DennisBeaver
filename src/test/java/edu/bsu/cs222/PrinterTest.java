@@ -3,14 +3,34 @@ package edu.bsu.cs222;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.io.IOException;
+
 
 public class PrinterTest {
 
     @Test
-    public void printTest(){
-        String testLine = "Redirected to: []\n" + "All revisions: {}";
-        Printer printTest = new Printer();
-        Assertions.assertEquals(testLine, printTest);
+    public void printNoPageFoundTest() throws IOException {
+        Printer print = new Printer();
+        String articleSearch = " ";
+        boolean result = print.printNoPageFound(articleSearch);
+        Assertions.assertTrue(result);
+
+    }
+    @Test
+    public void printNoPageRequestedTest() {
+        Printer print = new Printer();
+        String articleSearch = " ";
+        boolean result = print.printNoPageRequested(articleSearch);
+        Assertions.assertTrue(result);
+
+    }
+    @Test
+    public void printNetworkErrorTest() {
+        Printer print = new Printer();
+        String articleSearch = " ";
+        boolean result = print.printNoPageRequested(articleSearch);
+        Assertions.assertTrue(result);
+
     }
 
 
