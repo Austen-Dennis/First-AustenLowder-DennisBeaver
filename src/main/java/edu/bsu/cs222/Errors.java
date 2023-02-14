@@ -11,7 +11,10 @@ import java.util.Scanner;
 
 public class Errors {
     public static Boolean errorBlank(String articleSearch) {
-        return !articleSearch.equals(" ");
+        if (articleSearch == "") {
+            return true;
+        }
+        return false;
     }
 
     public static boolean pageNotFound(String articleSearch) throws IOException {

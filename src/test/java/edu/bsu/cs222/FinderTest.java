@@ -20,6 +20,4 @@ public class FinderTest {
         String result = String.valueOf(Finder.URLBuilder(articleSearch));
         Assertions.assertEquals(result,"https://en.wikipedia.org/w/api.php?action=query&format=json&prop=revisions&titles=James%20Gunn&rvprop=timestamp|user&rvlimit=27&redirects");
     }
-
-
 }

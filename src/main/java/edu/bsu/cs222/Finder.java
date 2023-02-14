@@ -9,6 +9,9 @@ public class Finder {
     private static Printer print = new Printer();
     public Finder(String articleSearch) throws IOException {
         new ArticleInfo(Finder.URLBuilder(articleSearch));
+        Printer print = new Printer();
+        print.printNoPageFound(articleSearch);
+        print.printNoPageRequested(articleSearch);
     }
     public static URL URLBuilder(String articleSearch) throws IOException {
         String articleName = articleSearch.replace(" ", "%20");
