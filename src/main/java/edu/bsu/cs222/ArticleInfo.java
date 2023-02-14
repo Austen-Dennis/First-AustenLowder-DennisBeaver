@@ -54,13 +54,14 @@ public class ArticleInfo {
         return timestampList;
     }
     public static String redirect(String articleSearch) throws IOException {
-        jsonLine = " ";
+
         Scanner findRedirect = new Scanner(Finder.URLBuilder(articleSearch).openStream());
         while(findRedirect.hasNext())
         {
             jsonLine+=findRedirect.nextLine();
         }
         JSONArray redirects = JsonPath.read(jsonLine, "$..redirects");
+        jsonLine = " ";
         return redirects.toString();
 
 
