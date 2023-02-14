@@ -8,6 +8,9 @@ import java.net.URL;
 public class Finder {
     private static Printer print = new Printer();
     public Finder(String articleSearch) throws IOException {
+        Printer print = new Printer();
+        print.printNoPageFound(articleSearch);
+        print.printNoPageRequested(articleSearch);
         new ArticleInfo(Finder.URLBuilder(articleSearch));
     }
     public static URL URLBuilder(String articleSearch) throws IOException {
@@ -18,7 +21,7 @@ public class Finder {
         connector(url);
         return url;
     }
-    public static void connector(URL url) {
+    public static void connector(URL url) throws IOException {
         HttpURLConnection connection = null;
         try {
             connection = (HttpURLConnection)url.openConnection();
