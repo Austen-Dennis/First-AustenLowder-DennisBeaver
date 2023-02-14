@@ -4,8 +4,14 @@ import com.jayway.jsonpath.JsonPath;
 import net.minidev.json.JSONArray;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.util.HashMap;
 import java.util.Scanner;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 
 public class ArticleInfo {
     private static String jsonLine = " ";
@@ -50,6 +56,7 @@ public class ArticleInfo {
         JSONArray timestamp = JsonPath.read(jsonLine, "$..timestamp");
         for (int i = 0; i < timestamp.size(); i++) {
             timestampList.put(i, timestamp.get(i));
+
         }
         return timestampList;
     }
