@@ -11,7 +11,7 @@ public class Printer {
     public void printAll(HashMap<Integer, Object> userList, HashMap<Integer, Object> timestampList, HashMap<Integer, Object> revisionList, String redirect){
         for (int user : userList.keySet()) {
             System.out.print(user + 1 + " ");
-            System.out.print("Date: " + timestampList.get(user).toString().replace("T", "     Time: ").replace("Z", "") + "    ");
+            System.out.print("Date: " + timestampList.get(user).toString().replace("T", "     Time: ").replace("Z", "") + "     ");
             System.out.print("Name: " + userList.get(user) + " ");
             System.out.println();
         }
