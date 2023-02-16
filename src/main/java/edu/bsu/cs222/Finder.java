@@ -3,6 +3,7 @@ package edu.bsu.cs222;
 import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.net.URLEncoder;
 
 
 public class Finder {
@@ -18,7 +19,7 @@ public class Finder {
     }
     public static URL URLBuilder(String articleSearch) throws IOException {
         //replaces all spaces in articleSearch with is ASCII equivalent.
-        String articleName = articleSearch.replace(" ", "%20");
+        String articleName = URLEncoder.encode(articleSearch);
         //creates the url
         URL url = new URL("https://en.wikipedia.org/w/api.php?action=query&format=json&prop=revisions&titles="
                             + articleName +"&rvprop=timestamp|user&rvlimit=27&redirects");
