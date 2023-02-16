@@ -18,7 +18,7 @@ public class Finder {
 
     }
     public static URL URLBuilder(String articleSearch) throws IOException {
-        //replaces all spaces in articleSearch with is ASCII equivalent.
+        //encodes the url to avoid issues with speical characters.
         String articleName = URLEncoder.encode(articleSearch);
         //creates the url
         URL url = new URL("https://en.wikipedia.org/w/api.php?action=query&format=json&prop=revisions&titles="
