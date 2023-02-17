@@ -65,7 +65,7 @@ public class ArticleInfo {
         {
             jsonLine+=findRedirect.nextLine();
         }
-
+        jsonLine = " ";
         return redirects.toString();
 
 
