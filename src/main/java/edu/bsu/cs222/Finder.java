@@ -4,11 +4,12 @@ import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 
 
 public class Finder {
     // calls an instance of the class printer to test articleSearch for errors
-    private static Printer print = new Printer();
+    private static final Printer print = new Printer();
     public Finder(String articleSearch) throws IOException {
         //checks for the errors stated above.
         print.printNoPageFound(articleSearch);
@@ -17,8 +18,8 @@ public class Finder {
 
     }
     public static URL URLBuilder(String articleSearch) throws IOException {
-        //encodes the url to avoid issues with speical characters.
-        String articleName = URLEncoder.encode(articleSearch);
+        //encodes the url to avoid issues with special characters.
+        String articleName = URLEncoder.encode(articleSearch, StandardCharsets.UTF_8.toString());
         URL url = new URL("https://en.wikipedia.org/w/api.php?action=query&format=json&prop=revisions&titles="
                             + articleName +"&rvprop=timestamp|user&rvlimit=27&redirects");
         //calls to connector and passes the url.
@@ -33,6 +34,7 @@ public class Finder {
         } catch (IOException e) {
             print.printNetworkError();
         }
+        assert connection != null;
         connection.setRequestProperty("User-Agent", "Revision Reporter/0.1 (austen.lowder@bsu.edu)");
         try {
             connection.connect();
