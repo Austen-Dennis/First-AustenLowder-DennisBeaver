@@ -18,8 +18,6 @@ public class ArticleInfo {
         getUserList(jsonLine);
         getTimestampList(jsonLine);
         getRevisionList(jsonLine);
-        //Printer printer = new Printer();
-        //printer.printAll(userList,timestampList, revisionList,redirect(jsonLine));
     }
 
     public static String JSONReader(URL url) throws IOException {

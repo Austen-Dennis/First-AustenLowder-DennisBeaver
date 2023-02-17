@@ -7,14 +7,14 @@ import java.util.Scanner;
 import static edu.bsu.cs222.ArticleInfo.*;
 
 
-public class main {
-    Printer print = new Printer();
+public class Main {
+
     public static void main(String[] args) throws IOException {
-        // takes input then goes to finder to check for errors and etc.
+        // takes input then goes to finder to check for errors etc.
         Scanner search = new Scanner(System.in);
         System.out.println("Provide an article name:");
         String searchValue = search.nextLine();
-            new Finder(searchValue);
+          new Finder(searchValue);
 
 
         // increments through both userlist and timestamplist hashmaps using keys to print the value.
