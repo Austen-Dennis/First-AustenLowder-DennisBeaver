@@ -11,7 +11,7 @@ public class ArticleInfoTest {
     public void testRedirect() throws IOException {
         String articleSearch = "Zappa";
         String resultString = ArticleInfo.redirect(articleSearch);
-        Assertions.assertEquals(resultString, "[[{\"from\":\"Zappa\",\"to\":\"Frank Zappa\"}]]");
+        Assertions.assertEquals("[[{\"from\":\"Zappa\",\"to\":\"Frank Zappa\"}]]", resultString );
     }
     @Test
     public void testNotRedirect() throws IOException {

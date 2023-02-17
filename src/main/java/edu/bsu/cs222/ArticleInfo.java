@@ -9,18 +9,17 @@ import java.util.Scanner;
 
 public class ArticleInfo {
     private static String jsonLine = " ";
-
     static HashMap<Integer, Object> revisionList = new HashMap<>();
-    private HashMap<Integer, Object> userList = new HashMap<>();
-    private HashMap<Integer, Object> timestampList = new HashMap<>();
+    static HashMap<Integer, Object> userList = new HashMap<>();
+    static HashMap<Integer, Object> timestampList = new HashMap<>();
 
     public ArticleInfo(URL url) throws IOException {
         JSONReader(url);
         getUserList(jsonLine);
         getTimestampList(jsonLine);
         getRevisionList(jsonLine);
-        Printer printer = new Printer();
-        printer.printAll(userList,timestampList, revisionList,redirect(jsonLine));
+        //Printer printer = new Printer();
+        //printer.printAll(userList,timestampList, revisionList,redirect(jsonLine));
     }
 
     public static void JSONReader(URL url) throws IOException {
@@ -61,12 +60,12 @@ public class ArticleInfo {
     public static String redirect(String articleSearch) throws IOException {
         //finds the redirect line within the JSON data and returns it as string.
         Scanner findRedirect = new Scanner(Finder.URLBuilder(articleSearch).openStream());
+        JSONArray redirects = JsonPath.read(jsonLine, "$..redirects");
         while(findRedirect.hasNext())
         {
             jsonLine+=findRedirect.nextLine();
         }
-        JSONArray redirects = JsonPath.read(jsonLine, "$..redirects");
-        jsonLine = " ";
+
         return redirects.toString();
 
 

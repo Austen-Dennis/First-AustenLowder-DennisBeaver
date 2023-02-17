@@ -13,14 +13,12 @@ public class Finder {
         //checks for the errors stated above.
         print.printNoPageFound(articleSearch);
         print.printNoPageRequested(articleSearch);
-        //calls to an instance of articleInfo to get data.
         new ArticleInfo(Finder.URLBuilder(articleSearch));
 
     }
     public static URL URLBuilder(String articleSearch) throws IOException {
         //encodes the url to avoid issues with speical characters.
         String articleName = URLEncoder.encode(articleSearch);
-        //creates the url
         URL url = new URL("https://en.wikipedia.org/w/api.php?action=query&format=json&prop=revisions&titles="
                             + articleName +"&rvprop=timestamp|user&rvlimit=27&redirects");
         //calls to connector and passes the url.
