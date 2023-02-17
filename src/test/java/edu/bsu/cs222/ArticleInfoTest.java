@@ -6,13 +6,9 @@ import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 
+import static edu.bsu.cs222.ArticleInfo.JSONReader;
+
 public class ArticleInfoTest {
-    @Test
-    public void testRedirect() throws IOException {
-        String articleSearch = "Zappa";
-        String resultString = ArticleInfo.redirect(articleSearch);
-        Assertions.assertEquals("[[{\"from\":\"Zappa\",\"to\":\"Frank Zappa\"}]]", resultString );
-    }
     @Test
     public void testNotRedirect() throws IOException {
         String articleSearch = "Frank Zappa";
@@ -50,5 +46,12 @@ public class ArticleInfoTest {
         String testLine = "{}";
         String result = ArticleInfo.getRevisionList(articleSearch).toString();
         Assertions.assertEquals(result,testLine);
+    }
+    @Test
+    public void testRedirect() throws IOException {
+        String articleSearch = "Zappa";
+        String redirectLine = ArticleInfo.JSONReader(Finder.URLBuilder(articleSearch));
+        String resultString = ArticleInfo.redirect(redirectLine);
+        Assertions.assertEquals("[[{\"from\":\"Zappa\",\"to\":\"Frank Zappa\"}]]",resultString );
     }
 }

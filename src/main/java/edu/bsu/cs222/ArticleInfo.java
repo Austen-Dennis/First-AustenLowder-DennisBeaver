@@ -22,13 +22,14 @@ public class ArticleInfo {
         //printer.printAll(userList,timestampList, revisionList,redirect(jsonLine));
     }
 
-    public static void JSONReader(URL url) throws IOException {
+    public static String JSONReader(URL url) throws IOException {
         // loops through the JSON data and grabs all lines.
         Scanner sc = new Scanner(url.openStream());
         while (sc.hasNext()) {
             jsonLine += sc.nextLine();
         }
         sc.close();
+        return jsonLine;
     }
 
     public static HashMap<Integer, Object> getRevisionList(String jsonLine) {
@@ -38,8 +39,7 @@ public class ArticleInfo {
             revisionList.put(i, revision.get(i));
         }
         return revisionList;
-    }
-    public HashMap<Integer, Object> getUserList(String jsonLine) {
+    }    public HashMap<Integer, Object> getUserList(String jsonLine) {
         //Specifically grabs the userList data from the JSON data and puts it in a hashmap
         JSONArray user = JsonPath.read(jsonLine, "$..user");
         for (int i = 0; i < user.size(); i++) {
