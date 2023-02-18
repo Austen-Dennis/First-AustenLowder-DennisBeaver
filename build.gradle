@@ -10,6 +10,26 @@ version '1.0-SNAPSHOT'
 repositories {
     mavenCentral()
 }
+ext {
+    junitVersion = '5.9.1'
+}
+
+sourceCompatibility = '18'
+targetCompatibility = '18'
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
+application {
+    mainModule = 'edu.bsu.cs222'
+    mainClass = 'edu.bsu.cs222.SearchView'
+}
+
+javafx {
+    version = '18.0.2'
+    modules = ['javafx.controls', 'javafx.fxml', 'javafx.web', 'javafx.media']
+}
 
 dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
@@ -18,6 +38,24 @@ dependencies {
     implementation group: 'com.jayway.jsonpath', name: 'json-path', version: '2.7.0'
     testImplementation('org.junit.jupiter:junit-jupiter:5.9.0')
     implementation group: 'org.slf4j', name: 'slf4j-nop', version: '2.0.2'
+    implementation('org.controlsfx:controlsfx:11.1.1')
+    implementation('com.dlsc.formsfx:formsfx-core:11.5.0') {
+        exclude(group: 'org.openjfx')
+    }
+    implementation('net.synedra:validatorfx:0.3.1') {
+        exclude(group: 'org.openjfx')
+    }
+    implementation('org.kordamp.ikonli:ikonli-javafx:12.3.1')
+    implementation('org.kordamp.bootstrapfx:bootstrapfx-core:0.4.0')
+    implementation('eu.hansolo:tilesfx:17.1.9') {
+        exclude(group: 'org.openjfx')
+    }
+    implementation('com.github.almasb:fxgl:17.1') {
+        exclude(group: 'org.openjfx')
+    }
+
+    testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
 
 
 }
@@ -25,9 +63,7 @@ dependencies {
 test {
     useJUnitPlatform()
 }
-javafx {
-    modules = [ 'javafx.controls', 'javafx.fxml' ]
-    version = '13.0.2'
-}
+
 
 mainClassName = 'edu.bsu.cs222.Main'
+

@@ -12,7 +12,7 @@ import java.io.IOException;
 public class SearchView extends Application{
     @Override
     public void start(Stage stage) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("resources/search-view.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("search-view.fxml"));
         Scene scene = new Scene(root, 320, 240);
         stage.setTitle("Hello!");
         stage.setScene(scene);
