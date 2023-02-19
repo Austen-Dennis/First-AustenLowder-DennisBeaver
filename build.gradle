@@ -28,7 +28,7 @@ application {
 
 javafx {
     version = '18.0.2'
-    modules = ['javafx.controls', 'javafx.fxml', 'javafx.web', 'javafx.media']
+    modules = ['javafx.controls', 'javafx.fxml']
 }
 
 dependencies {
@@ -65,5 +65,5 @@ test {
 }
 
 
-mainClassName = 'edu.bsu.cs222.Main'
+mainClassName = 'edu.bsu.cs222.SearchView'
 
