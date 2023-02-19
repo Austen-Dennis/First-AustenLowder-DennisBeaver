@@ -1,4 +1,4 @@
-package edu.bsu.cs222.searchview;
+package edu.bsu.cs222;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

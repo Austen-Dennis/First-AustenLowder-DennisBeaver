@@ -1,4 +1,4 @@
-module edu.bsu.cs222.searchview {
+module edu.bsu.cs222 {
     requires javafx.controls;
     requires javafx.fxml;
     requires javafx.web;
@@ -9,7 +9,11 @@ module edu.bsu.cs222.searchview {
     requires org.kordamp.ikonli.javafx;
     requires org.kordamp.bootstrapfx.core;
     requires com.almasb.fxgl.all;
+    uses com.jayway.jsonpath.JsonPath;
+    uses net.minidev.json.JSONArray;
+    requires json.path;
+    requires json.smart;
 
-    opens edu.bsu.cs222.searchview to javafx.fxml;
-    exports edu.bsu.cs222.searchview;
+    opens edu.bsu.cs222 to javafx.fxml;
+    exports edu.bsu.cs222;
 }
