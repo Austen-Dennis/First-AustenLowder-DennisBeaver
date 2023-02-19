@@ -27,6 +27,6 @@ public class SearchView extends Application {
 }
 
 
-    }
+
 
 
