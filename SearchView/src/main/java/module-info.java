@@ -1,4 +1,4 @@
-module FirstProject.main {
+module edu.bsu.css222.searchview {
     requires javafx.controls;
     requires javafx.fxml;
     requires javafx.web;
@@ -10,9 +10,7 @@ module FirstProject.main {
     requires org.kordamp.bootstrapfx.core;
     //requires eu.hansolo.tilesfx;
     requires com.almasb.fxgl.all;
-    requires json.path;
-    requires json.smart;
 
-    opens edu.bsu.cs222 to javafx.fxml;
-    exports edu.bsu.cs222;
+    opens edu.bsu.css222.searchview to javafx.fxml;
+    exports edu.bsu.css222.searchview;
 }
