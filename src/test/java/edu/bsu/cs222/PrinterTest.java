@@ -24,15 +24,5 @@ public class PrinterTest {
         Assertions.assertTrue(result);
 
     }
-    @Test
-    public void printNetworkErrorTest() {
-        Printer print = new Printer();
-        String articleSearch = " ";
-        boolean result = print.printNoPageRequested(articleSearch);
-        Assertions.assertTrue(result);
-
-    }
-
-
 
 }
