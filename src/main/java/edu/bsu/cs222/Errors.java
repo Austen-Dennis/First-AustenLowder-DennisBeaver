@@ -13,13 +13,11 @@ public class Errors {
         if(articleSearch.equals("")){
             return true;
 
-        }else if(articleSearch.equals(" ")){
-            return true;
-        }
-        return false;
+        }else return articleSearch.equals(" ");
     }
 
     public static boolean pageNotFound(String articleSearch) throws IOException {
+        //Searches for the missing line then prints returns the error.
         StringBuilder jsonLine = new StringBuilder();
         Scanner findMissing = new Scanner(Finder.URLBuilder(articleSearch).openStream());
         while(findMissing.hasNext())

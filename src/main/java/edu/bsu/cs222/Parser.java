@@ -16,7 +16,6 @@ public class Parser {
     }
 
     public String userParse(InputStream testDataStream) throws IOException {
-        //parses the input stream and checks for the first user
         JSONArray result =  JsonPath.read(testDataStream, "$..user");
         return result.get(0).toString();
     }
