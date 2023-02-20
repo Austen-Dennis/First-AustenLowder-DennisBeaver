@@ -5,7 +5,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import java.io.IOException;
-import java.util.concurrent.TimeUnit;
 import static edu.bsu.cs222.ArticleInfo.*;
 import edu.bsu.cs222.Finder;
 
@@ -20,27 +19,12 @@ public class Controller {
         TextBox.clear();
         TextBox.appendText("Recent edits for \"" + articleSearch + "\":");
         TextBox.appendText("\n");
-        int secondsToSleep = 5;
         if (Errors.errorBlank(articleSearch)) {
-            try {
-                TextBox.appendText("System exiting no page requested");
-                TimeUnit.SECONDS.sleep(secondsToSleep);
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
-            }
-            System.exit(0);
-
+            TextBox.appendText("Please exit system: no page requested");
         } else if (Errors.pageNotFound(articleSearch)) {
-            TextBox.appendText("System exiting no page found");
-            try {
-                TimeUnit.SECONDS.sleep(secondsToSleep);
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
-            }
+            TextBox.appendText("Please exit system: no page found");
         } else {
-
             new Finder(articleSearch);
-
 
             for (int user : userList.keySet()) {
                 TextBox.appendText(user + 1 + " ");
@@ -50,7 +34,10 @@ public class Controller {
             }
             TextBox.appendText("\n");
             TextBox.appendText("Redirected to: " + redirect(articleSearch));
-
         }
+    }
+
+    public void onExit() {
+        System.exit(0);
     }
 }
