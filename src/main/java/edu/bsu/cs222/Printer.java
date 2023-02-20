@@ -12,14 +12,12 @@ public class Printer {
             boolean errorStatus = Errors.pageNotFound(articleSearch);
             if (errorStatus) {
                 System.out.print("Page not found: exiting program");
-                System.exit(0);
             }
             return true;
         }
         public boolean printNetworkError(){
             //prints out this statement if the contention errors out.
             System.out.println("Could not connect to server: exiting program");
-            System.exit(0);
 
             return true;
         }
@@ -28,7 +26,6 @@ public class Printer {
             boolean errorStatus = Errors.errorBlank(articleSearch);
             if (errorStatus) {
                 System.out.println("No page requested: exiting program");
-                System.exit(0);
             }
             return true;
         }
