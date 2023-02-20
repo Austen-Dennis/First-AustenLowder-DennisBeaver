@@ -18,7 +18,9 @@ public class Controller {
         String articleSearch = searchValue.getText();
         TextBox.clear();
         //tests for those errors and then prints out this statement in the box
-        if (Errors.errorBlank(articleSearch)) {
+        if (!Errors.connectionError(Finder.URLBuilder(articleSearch))) {
+            TextBox.appendText("Please check connection or exit system: no connection");
+        } else if (Errors.errorBlank(articleSearch)) {
             TextBox.appendText("Please enter another article name or exit system: no page requested");
         } else if (Errors.pageNotFound(articleSearch)) {
             TextBox.appendText("Please enter another article name or exit system: no page found");

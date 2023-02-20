@@ -15,7 +15,9 @@ public class Main {
         Scanner search = new Scanner(System.in);
         System.out.println("Provide an article name:");
         String searchValue = search.nextLine();
-        if (Errors.errorBlank(searchValue)) {
+        if (!Errors.connectionError(Finder.URLBuilder(searchValue))) {
+            System.out.println("System exit: no connection");
+        } else if (Errors.errorBlank(searchValue)) {
             System.out.println("System exit: no page requested");
         } else if (Errors.pageNotFound(searchValue)) {
             System.out.println("System exit: no page found");
