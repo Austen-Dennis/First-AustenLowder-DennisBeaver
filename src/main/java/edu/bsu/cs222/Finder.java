@@ -11,7 +11,6 @@ public class Finder {
     // calls an instance of the class printer to test articleSearch for errors
     private static final Printer print = new Printer();
     public Finder(String articleSearch) throws IOException {
-        //checks for the errors stated above.
         print.printNoPageFound(articleSearch);
         print.printNoPageRequested(articleSearch);
         new ArticleInfo(Finder.URLBuilder(articleSearch));
@@ -22,7 +21,6 @@ public class Finder {
         String articleName = URLEncoder.encode(articleSearch, StandardCharsets.UTF_8);
         URL url = new URL("https://en.wikipedia.org/w/api.php?action=query&format=json&prop=revisions&titles="
                             + articleName +"&rvprop=timestamp|user&rvlimit=27&redirects");
-        //calls to connector and passes the url.
         connector(url);
         return url;
     }

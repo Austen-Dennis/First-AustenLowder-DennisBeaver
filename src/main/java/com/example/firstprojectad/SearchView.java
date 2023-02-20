@@ -14,6 +14,7 @@ public class SearchView extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
+        // creates the scene and sets it size
         FXMLLoader fxmlLoader = new FXMLLoader(SearchView.class.getResource("search-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 800, 600);
         stage.setTitle("FXML Loader");

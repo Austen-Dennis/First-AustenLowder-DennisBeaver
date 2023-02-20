@@ -19,6 +19,7 @@ public class Controller {
         TextBox.clear();
         TextBox.appendText("Recent edits for \"" + articleSearch + "\":");
         TextBox.appendText("\n");
+        //tests for those errors and then prints out this statement in the box
         if (Errors.errorBlank(articleSearch)) {
             TextBox.appendText("Please exit system: no page requested");
         } else if (Errors.pageNotFound(articleSearch)) {
