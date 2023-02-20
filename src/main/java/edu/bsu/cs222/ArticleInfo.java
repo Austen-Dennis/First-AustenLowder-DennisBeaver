@@ -9,9 +9,9 @@ import java.util.Scanner;
 
 public class ArticleInfo {
     private static String jsonLine = " ";
-    static HashMap<Integer, Object> revisionList = new HashMap<>();
-    static HashMap<Integer, Object> userList = new HashMap<>();
-    static HashMap<Integer, Object> timestampList = new HashMap<>();
+    public static HashMap<Integer, Object> revisionList = new HashMap<>();
+    public static HashMap<Integer, Object> userList = new HashMap<>();
+    public static HashMap<Integer, Object> timestampList = new HashMap<>();
 
     public ArticleInfo(URL url) throws IOException {
         JSONReader(url);

@@ -6,7 +6,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import edu.bsu.cs222.Finder;
-import
 
 import java.io.IOException;
 
