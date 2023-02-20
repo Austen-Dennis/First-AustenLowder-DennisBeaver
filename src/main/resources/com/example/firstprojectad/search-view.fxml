@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<VBox alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.firstprojectad.Controller">
+<VBox alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.firstprojectad.Controller">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
@@ -14,7 +14,8 @@
          <Font name="Arial Rounded MT Bold" size="50.0" />
       </font></Label>
    <TextField fx:id="searchValue" promptText="Provide an article name:" />
-    <Button onAction="#onSearch" text="Search" />
+    <Button onAction="#onSearch" prefHeight="26.0" prefWidth="122.0" text="Search" />
+   <Button alignment="CENTER" contentDisplay="RIGHT" layoutX="119.0" layoutY="155.0" nodeOrientation="LEFT_TO_RIGHT" onAction="#onSearch" prefHeight="26.0" prefWidth="122.0" text="EXIT" />
    <TextArea fx:id="TextBox" prefHeight="300.0" prefWidth="300.0">
       <font>
          <Font size="18.0" />
