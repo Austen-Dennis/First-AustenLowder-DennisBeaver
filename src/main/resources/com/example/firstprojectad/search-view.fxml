@@ -18,7 +18,7 @@
       <font>
          <Font name="System Bold Italic" size="12.0" />
       </font></TextField>
-    <Button onAction="#onSearch" prefHeight="26.0" prefWidth="122.0" text="Search" textFill="#767676" />
+    <Button onAction="#onSearch" prefHeight="26.0" prefWidth="122.0" text="Search" textAlignment="CENTER" textFill="#767676" />
    <Button alignment="CENTER" contentDisplay="RIGHT" layoutX="119.0" layoutY="155.0" nodeOrientation="LEFT_TO_RIGHT" onAction="#onExit" prefHeight="26.0" prefWidth="122.0" text="EXIT" textFill="#757575" />
    <TextArea fx:id="TextBox" prefHeight="300.0" prefWidth="300.0">
       <font>
