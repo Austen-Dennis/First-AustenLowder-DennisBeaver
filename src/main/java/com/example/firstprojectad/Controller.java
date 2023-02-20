@@ -17,15 +17,15 @@ public class Controller {
     public void onSearch() throws IOException {
         String articleSearch = searchValue.getText();
         TextBox.clear();
-        TextBox.appendText("Recent edits for \"" + articleSearch + "\":");
-        TextBox.appendText("\n");
         //tests for those errors and then prints out this statement in the box
         if (Errors.errorBlank(articleSearch)) {
-            TextBox.appendText("Please exit system: no page requested");
+            TextBox.appendText("Please enter another article name or exit system: no page requested");
         } else if (Errors.pageNotFound(articleSearch)) {
-            TextBox.appendText("Please exit system: no page found");
+            TextBox.appendText("Please enter another article name or exit system: no page found");
         } else {
             new Finder(articleSearch);
+            TextBox.appendText("Recent edits for \"" + articleSearch + "\":");
+            TextBox.appendText("\n");
 
             for (int user : userList.keySet()) {
                 TextBox.appendText(user + 1 + " ");
