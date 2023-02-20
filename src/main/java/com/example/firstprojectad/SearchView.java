@@ -19,7 +19,7 @@ public class SearchView extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(SearchView.class.getResource("search-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 320, 240);
+        Scene scene = new Scene(fxmlLoader.load(), 800, 600);
         stage.setTitle("FXML Loader");
         stage.setScene(scene);
         stage.show();
