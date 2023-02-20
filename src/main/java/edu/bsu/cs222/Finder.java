@@ -9,7 +9,7 @@ import java.nio.charset.StandardCharsets;
 
 public class Finder {
     // calls an instance of the class printer to test articleSearch for errors
-    private static final Printer print = new Printer();
+    //private static final Printer print = new Printer();
     public Finder(String articleSearch) throws IOException {
         new ArticleInfo(Finder.URLBuilder(articleSearch));
     }
@@ -18,7 +18,6 @@ public class Finder {
         String articleName = URLEncoder.encode(articleSearch, StandardCharsets.UTF_8);
         URL url = new URL("https://en.wikipedia.org/w/api.php?action=query&format=json&prop=revisions&titles="
                             + articleName +"&rvprop=timestamp|user&rvlimit=27&redirects");
-        connector(url);
         return url;
     }
     public static void connector(URL url) {
@@ -27,15 +26,16 @@ public class Finder {
         try {
             connection = (HttpURLConnection)url.openConnection();
         } catch (IOException e) {
-            print.printNetworkError();
+            //print.printNetworkError();
         }
         assert connection != null;
         connection.setRequestProperty("User-Agent", "Revision Reporter/0.1 (austen.lowder@bsu.edu)");
         try {
             connection.connect();
         } catch (IOException e) {
-            print.printNetworkError();
+            //print.printNetworkError();
         }
     }
+
 
 }
