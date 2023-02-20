@@ -11,10 +11,7 @@ public class Finder {
     // calls an instance of the class printer to test articleSearch for errors
     private static final Printer print = new Printer();
     public Finder(String articleSearch) throws IOException {
-        print.printNoPageFound(articleSearch);
-        print.printNoPageRequested(articleSearch);
         new ArticleInfo(Finder.URLBuilder(articleSearch));
-
     }
     public static URL URLBuilder(String articleSearch) throws IOException {
         //encodes the url to avoid issues with special characters.
