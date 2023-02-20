@@ -1,15 +1,11 @@
 package com.example.firstprojectad;
 
 import javafx.application.Application;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.stage.Stage;
 import java.io.IOException;
 
-import static edu.bsu.cs222.ArticleInfo.*;
 
 public class SearchView extends Application {
     public static void main(String[] args) {
