@@ -17,10 +17,13 @@ public class Main {
         String searchValue = search.nextLine();
         if (!Errors.connectionError(Finder.URLBuilder(searchValue))) {
             System.out.println("System exit: no connection");
+            System.exit(0);
         } else if (Errors.errorBlank(searchValue)) {
             System.out.println("System exit: no page requested");
+            System.exit(0);
         } else if (Errors.pageNotFound(searchValue)) {
             System.out.println("System exit: no page found");
+            System.exit(0);
         } else {
             new Finder(searchValue);
             // increments through both userlist and timestamplist hashmaps using keys to print the value.
