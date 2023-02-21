@@ -31,8 +31,8 @@ public class Controller {
 
             for (int user : userList.keySet()) {
                 TextBox.appendText(user + 1 + " ");
-                TextBox.appendText("Date: " + timestampList.get(user).toString().replace("T", "     Time: ").replace("Z", "") + "     ");
-                TextBox.appendText("Name: " + userList.get(user) + " ");
+                TextBox.appendText("Date: " + timestampList.get(user).toString().replace("T", "     \tTime: ").replace("Z", "") + "     ");
+                TextBox.appendText("\tName: " + userList.get(user) + " ");
                 TextBox.appendText("\n");
             }
             TextBox.appendText("\n");
