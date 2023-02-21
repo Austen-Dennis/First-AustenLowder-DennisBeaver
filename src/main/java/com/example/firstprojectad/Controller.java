@@ -8,6 +8,9 @@ import java.io.IOException;
 import static edu.bsu.cs222.ArticleInfo.*;
 import edu.bsu.cs222.Finder;
 
+import javax.swing.*;
+
+
 public class Controller {
     @FXML
     public TextField searchValue;
@@ -17,11 +20,13 @@ public class Controller {
     public void onSearch() throws IOException {
         String articleSearch = searchValue.getText();
         TextBox.clear();
+        JFrame Error;
+        Error = new JFrame();
         //tests for those errors and then prints out this statement in the box
         if (!Errors.connectionError(Finder.URLBuilder(articleSearch))) {
-            TextBox.appendText("Please check connection or exit system: no connection");
+            JOptionPane.showMessageDialog(Error, "Please check connection or exit system: no connection","Connection Error",JOptionPane.WARNING_MESSAGE);
         } else if (Errors.errorBlank(articleSearch)) {
-            TextBox.appendText("Please enter another article name or exit system: no page requested");
+            JOptionPane.showMessageDialog(Error, "Please enter another article name or exit system: no page requested","Input Error",JOptionPane.WARNING_MESSAGE);
         } else if (Errors.pageNotFound(articleSearch)) {
             TextBox.appendText("Please enter another article name or exit system: no page found");
         } else {
