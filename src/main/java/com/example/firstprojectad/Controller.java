@@ -31,8 +31,10 @@ public class Controller {
             TextBox.appendText("Please enter another article name or exit system: no page found");
         } else {
             new Finder(articleSearch);
-            TextBox.appendText("Recent edits for \"" + articleSearch + "\":");
+            TextBox.appendText("Recent edits for \"" + articleSearch + "\":" + "\n");
+            TextBox.appendText("Redirected to: " + redirect(articleSearch));
             TextBox.appendText("\n");
+
 
             for (int user : userList.keySet()) {
                 TextBox.appendText(user + 1 + " ");
@@ -41,7 +43,7 @@ public class Controller {
                 TextBox.appendText("\n");
             }
             TextBox.appendText("\n");
-            TextBox.appendText("Redirected to: " + redirect(articleSearch));
+
         }
     }
 
