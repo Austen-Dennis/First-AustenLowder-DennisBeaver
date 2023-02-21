@@ -38,7 +38,6 @@ public class ArticleInfo {
         }
         return revisionList;
     }    public HashMap<Integer, Object> getUserList(String jsonLine) {
-        //Specifically grabs the userList data from the JSON data and puts it in a hashmap
         JSONArray user = JsonPath.read(jsonLine, "$..user");
         for (int i = 0; i < user.size(); i++) {
             userList.put(i , user.get(i));
@@ -47,7 +46,6 @@ public class ArticleInfo {
         return userList;
     }
     public HashMap<Integer, Object> getTimestampList(String jsonLine) {
-        //Specifically grabs the timestamp data from the JSON data and puts it in a hashmap
         JSONArray timestamp = JsonPath.read(jsonLine, "$..timestamp");
         for (int i = 0; i < timestamp.size(); i++) {
             timestampList.put(i, timestamp.get(i));

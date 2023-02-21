@@ -8,8 +8,6 @@ import java.nio.charset.StandardCharsets;
 
 
 public class Finder {
-    // calls an instance of the class printer to test articleSearch for errors
-    //private static final Printer print = new Printer();
     public Finder(String articleSearch) throws IOException {
         new ArticleInfo(Finder.URLBuilder(articleSearch));
     }
@@ -20,22 +18,12 @@ public class Finder {
                             + articleName +"&rvprop=timestamp|user&rvlimit=27&redirects");
         return url;
     }
-    public static void connector(URL url) {
+    public static void connector(URL url) throws IOException {
         // checks that the connection works and if it does it will print a network error.
         HttpURLConnection connection = null;
-        try {
-            connection = (HttpURLConnection)url.openConnection();
-        } catch (IOException e) {
-            //print.printNetworkError();
-        }
-        assert connection != null;
+        connection = (HttpURLConnection)url.openConnection();
         connection.setRequestProperty("User-Agent", "Revision Reporter/0.1 (austen.lowder@bsu.edu)");
-        try {
-            connection.connect();
-        } catch (IOException e) {
-            //print.printNetworkError();
+        connection.connect();{
         }
     }
-
-
 }
