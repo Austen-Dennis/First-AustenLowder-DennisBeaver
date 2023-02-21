@@ -7,7 +7,6 @@ import javafx.scene.control.TextField;
 import java.io.IOException;
 import static edu.bsu.cs222.ArticleInfo.*;
 import edu.bsu.cs222.Finder;
-
 import javax.swing.*;
 
 
@@ -34,7 +33,6 @@ public class Controller {
             TextBox.appendText("Recent edits for \"" + articleSearch + "\":" + "\n");
             TextBox.appendText("Redirected to: " + redirect(articleSearch));
             TextBox.appendText("\n");
-
 
             for (int user : userList.keySet()) {
                 TextBox.appendText(user + 1 + " ");
